@@ -1,0 +1,10 @@
+{
+  "page404.title": "404",
+  "page404.subTitle": "يبدو أنك قد فقدت",
+  "page404.description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+  "page404.backButton": "عودة المنزل",
+  "page500.title": "500",
+  "page500.subTitle": "خطأ في الخادم الداخلي",
+  "page500.description": "هناك خطأ ما. الرجاء إعادة المحاولة.",
+  "page500.backButton": "عودة المنزل"
+}
