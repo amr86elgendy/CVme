@@ -10,11 +10,21 @@ const Button = styled.button`
   border: 0;
   cursor: pointer;
 
-  ${({ secondary }) =>
+  ${({ primary }) =>
+    primary &&
+    css`
+      background-color: ${palette('primary', 0)};
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 20px;
+    `}
+
+  ${({ secondary, color = 'primary', scale = 1 }) =>
     secondary &&
     css`
       background-color: ${palette('grayscale', 1)};
-      color: ${palette('primary', 1)};
+      color: ${palette(color, scale)};
       font-weight: 600;
       font-size: 14px;
       line-height: 20px;
@@ -40,8 +50,8 @@ const Button = styled.button`
       font-family: ${font('primary', 0)} !important;
     `}
 
-    ${({ viewMore }) =>
-    viewMore &&
+    ${({ link }) =>
+    link &&
     css`
       padding: 0;
       font-weight: 700;

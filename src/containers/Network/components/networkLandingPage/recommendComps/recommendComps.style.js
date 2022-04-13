@@ -1,6 +1,5 @@
-import {Card} from 'antd'
-import styled from 'styled-components'
-import { palette } from 'styled-theme'
+import Card from 'styles/components/card';
+import styled from 'styled-components';
 
 export const StyledCard = styled(Card)`
   && {
@@ -42,7 +41,8 @@ export const StyledCard = styled(Card)`
             margin-top: 1rem;
             margin-bottom: 4px;
           }
-          p {}
+          p {
+          }
           .article-network-icon {
             margin: 0.5rem 0;
             svg {

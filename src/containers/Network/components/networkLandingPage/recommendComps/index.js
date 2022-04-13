@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Image, Skeleton } from 'antd';
 import { StyledCard } from './recommendComps.style';
 import cover from 'assets/images/s6.jpg'
@@ -6,6 +5,7 @@ import cover from 'assets/images/s6.jpg'
 import { MdGroups } from 'react-icons/md'
 import { useGetRecommendedComps } from 'apis/network';
 import Button from 'styles/components/button';
+import { Link } from 'react-router-dom';
 
 const RecommendComps = () => {
   const { data, isLoading } = useGetRecommendedComps();
@@ -14,7 +14,7 @@ const RecommendComps = () => {
     <StyledCard>
       <header className='flex-between'>
         <h3 className='heading-3'>recommended companies to follow</h3>
-        <Button viewMore>view more</Button>
+        <Button link><Link to='/companies-to-follow'>view more</Link></Button>
       </header>
       <section>
         {isLoading ? (

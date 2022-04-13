@@ -1,10 +1,20 @@
 import { createGlobalStyle } from 'styled-components';
 import { palette, font } from 'styled-theme';
-// import 'antd/dist/antd.css';
+import 'antd/dist/antd.min.css';
 
 const GlobalStyles = createGlobalStyle`
 font-family: ${font('primary', 0)};
- .container,.container-fluid{
+
+h1, h2, h3, h4, h5, h6, button, a, p {
+  text-transform: capitalize;
+}
+a {
+  color: inherit;
+  &:hover {
+    color: inherit;
+  }
+}
+.container,.container-fluid{
     width: 100%;
     /* padding-right: .75rem;
     padding-left: .75rem; */
@@ -43,7 +53,29 @@ font-family: ${font('primary', 0)};
     justify-content: space-between;
     align-items: center;
   }
-
+  .noti-wrapper {
+    display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      background-color: ${palette('grayscale', 1)};
+      outline: 0;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+  }
+  .heading-1 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    color: ${palette('grayscale', 10)};
+  }
+  .heading-2 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: ${palette('grayscale', 10)};
+  }
   .heading-3 {
     font-weight: 600;
     font-size: 16px;
@@ -62,6 +94,7 @@ font-family: ${font('primary', 0)};
     line-height: 14px;
     color: ${palette('grayscale', 7)};
   }
+  /* Network Page */
   .article-network {
     background: white;
     display: flex;
@@ -79,6 +112,51 @@ font-family: ${font('primary', 0)};
     color: ${palette('grayscale', 5)};
     svg {
       color: ${palette('grayscale', 7)};
+    }
+  }
+  /* Inputs Style */
+  input {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem 1rem 0.5rem 2.25rem;
+    color: rgba(0, 0, 0, 0.85);
+    border-radius: 6px;
+    outline: 0;
+    border: 1px solid ${palette('grayscale', 1)};
+    transition: all 0.2s ease;
+    &:hover {
+      border: 1px solid ${palette('primary', 1)};
+    }
+    &:focus {
+      border-color: ${palette('primary', 1)};
+      box-shadow: 0 0 0 2px rgb(81 38 123 / 20%);
+    }
+  }
+  /* Modal Styles */
+  
+  .ant-modal-title {
+    font-weight: 500;
+    font-size: 18px !important;
+    line-height: 22px;
+    color: ${palette('grayscale', 10)};
+  }
+  .ant-modal-footer .share {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-top: .5rem;
+    cursor: pointer;
+    span {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      color: ${palette('grayscale', 10)};
+      svg {
+        margin-right: 0.35rem;
+        color: ${palette('primary', 1)};
+      }
     }
   }
   .ant-btn{
@@ -135,16 +213,7 @@ font-family: ${font('primary', 0)};
     background: #f8f8f8!important;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-button,
-a {
-  text-transform: capitalize
-}
+
 
 h1,
 h2,

@@ -1,6 +1,5 @@
-import {Card} from 'antd'
-import styled from 'styled-components'
-import { palette } from 'styled-theme'
+import Card from 'styles/components/card';
+import styled from 'styled-components';
 
 export const StyledCard = styled(Card)`
   && {

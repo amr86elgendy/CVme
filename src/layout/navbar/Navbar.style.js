@@ -17,24 +17,10 @@ export const StyledNav = styled.nav`
   form {
     position: relative;
     input {
-      display: inline-block;
-      width: 100%;
       max-width: 230px;
-      padding: 0.5rem 1rem 0.5rem 2.25rem;
-      color: rgba(0, 0, 0, 0.85);
-      background: #f2f3f7;
-      border-radius: 6px;
-      outline: 0;
-      border: 1px solid #f2f3f7;
-      transition: all 0.2s ease;
-      &:hover {
-        border: 1px solid #664087;
-      }
-      &:focus {
-        border-color: #664087;
-        box-shadow: 0 0 0 2px rgb(81 38 123 / 20%);
-      }
+      background: ${palette('grayscale', 1)};
     }
+
     svg {
       position: absolute;
       top: 50%;
@@ -43,10 +29,32 @@ export const StyledNav = styled.nav`
       color: ${palette('grayscale', 5)};
     }
   }
-  ul {
+  ul.main-links {
     display: flex;
     align-items: center;
     gap: 2rem;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-transform: capitalize;
+      cursor: pointer;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      transition: all 0.2s ease;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 16px;
+      color: ${palette('grayscale', 7)};
+      &:hover {
+        background-color: ${palette('primary', 4)};
+        color: ${palette('primary', 0)};
+      }
+    }
+    a.active li {
+      color: ${palette('primary', 0)};
+      background-color: ${palette('primary', 4)};
+    }
   }
   .profileNotiWraper {
     display: inline-flex;
@@ -54,46 +62,6 @@ export const StyledNav = styled.nav`
     height: 100%;
     align-items: center;
     position: relative;
-    button.notiWraper {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 4px;
-      background-color: ${palette('grayscale', 1)};
-      outline: none;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      @media (max-width: 667.99px) {
-        width: auto;
-      }
-    }
-  }
-`;
-
-export const ListItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  text-transform: capitalize;
-  cursor: pointer;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  transition: all 0.2s ease;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  background-color: ${(props) => (props.active ? palette('primary', 4) : '')};
-  color: ${palette('grayscale', 7)};
-  ${(props) =>
-    props.active &&
-    css`
-      /* font-weight: 600; */
-      color: ${palette('primary', 0)};
-    `};
-  &:hover {
-    background-color: ${palette('primary', 4)};
-    color: ${palette('primary', 0)};
   }
 `;
 

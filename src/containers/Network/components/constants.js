@@ -1,5 +1,6 @@
 import React from 'react'
 import { FiUserCheck, FiUserPlus } from 'react-icons/fi'
+import { BsPatchCheck } from 'react-icons/bs';
 
 export const networkLinks = [
   {
@@ -12,4 +13,9 @@ export const networkLinks = [
     label: 'my network',
     path: '/my-network',
   },
-]
+  {
+    icon: <BsPatchCheck size={20} />, //
+    label: 'companies i follow',
+    path: '/companies-i-follow',
+  },
+];

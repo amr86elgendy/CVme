@@ -11,7 +11,7 @@ import { useDispatch } from 'react-redux'
 import logo from 'assets/images/cv-me-logo.png'
 import { ListItem, ProfileButton, StyledNav } from './Navbar.style'
 import { mainLinks } from './constants'
-import { Link, useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -44,18 +44,18 @@ const Navbar = () => {
           </form>
         </div>
 
-        <ul>
+        <ul className='main-links'>
           {mainLinks.map((item) => (
-            <Link to={item.path} key={item.label}>
-              <ListItem active={item.path === location.pathname}>
+            <NavLink to={item.path} key={item.label}>
+              <li>
                 {item.icon}
                 {item.label}
-              </ListItem>
-            </Link>
+              </li>
+            </NavLink>
           ))}
         </ul>
         <div className="profileNotiWraper">
-          <button className="notiWraper">
+          <button className="noti-wrapper">
             <TopbarNotifyIcon size={25} />
           </button>
           <Dropdown overlay={menuList} trigger={['click']}>

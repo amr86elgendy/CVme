@@ -11,15 +11,18 @@ import { get as _get } from 'lodash';
 import { shallowEqual, useSelector } from 'react-redux';
 import { injectIntl } from 'react-intl';
 // import { reactIntl } from '@cvme/lib/helpers/i18n'
+import Layout from 'layout';
 import ErrorBoundary from './ErrorBoundary';
 import Loader from 'utility/Loader';
+import PendingReqsRoute from 'containers/Network/PendingReqsRoute';
+import MyNetworkRoute from 'containers/Network/MyNetworkRoute';
 
 const Login = lazy(() => import('./containers/Auth/Login'))
-const SignUp = lazy(() => import('./containers/Auth/SignUp'))
+const SignUp = lazy(() => import('./containers/Auth/signup'))
 const Network = lazy(() => import('./containers/Network'));
 const Home = lazy(() => import('./containers/Home'));
 
-function PrivateRoute() {
+function PrivateRoute({ children }) {
   const location = useLocation();
   const User = useSelector((state) => state.User || {}, shallowEqual);
   const isLoggedIn = _get(User, 'token', false);
@@ -28,7 +31,7 @@ function PrivateRoute() {
       ? _get(User, 'user.education', false)
       : _get(User, 'user.organization', false);
   // console.log({ User });
-  return <Outlet />;
+  return children;
   // if (isLoggedIn && isProfileComplete) {
   //   return <Outlet />;
   // }
@@ -71,18 +74,22 @@ function AllRoutes(props) {
       <Suspense fallback={<Loader />}>
         <Router>
           <Routes>
+            <Route
+              path='/'
+              element={
+                <PrivateRoute>
+                  <Layout />
+                </PrivateRoute>
+              }
+            >
+              <Route index element={<Home />} />
+              <Route path='network' element={<Network />} />
+              <Route path='pending-requests' element={<PendingReqsRoute />} />
+              <Route path='my-network' element={<MyNetworkRoute />} />
+            </Route>
             <Route path='/signup' element={<SignUp />} />
             <Route path='/signin' element={<Login />} />
-            <Route element={<PrivateRoute />}>
-              <Route
-                path='/'
-                element={<Home />}
-              />
-              <Route
-                path='/network'
-                element={<Network />}
-              />
-            </Route>
+            <Route path='*' element={<h1>this page does not exist</h1>} />
           </Routes>
         </Router>
       </Suspense>

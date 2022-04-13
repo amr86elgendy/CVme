@@ -8,11 +8,11 @@ import theme from 'styles/theme';
 import { ThemeProvider } from 'styled-components';
 import { IntlProvider } from 'react-intl';
 import AppLocale from './translations';
-import 'antd/dist/antd.css';
 
 const queryClient = new QueryClient();
 
 function App() {
+  
   return (
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>

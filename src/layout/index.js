@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 // import useWindowSize from 'hooks/useWindowSize'
 import LayoutStyled from './Layout.style'
 import Navbar from './navbar/Navbar'
+import { Outlet } from 'react-router-dom'
 
 const { Content } = Layout
 
@@ -14,7 +15,7 @@ function RegisterLayout({ children }) {
     <LayoutStyled>
       <Navbar />
       <Content>
-        <div className="container" style={{ padding: '1.5rem 0'}}>{children}</div>
+        <div className="container" style={{ padding: '1.5rem 0'}}><Outlet /></div>
       </Content>
     </LayoutStyled>
   )

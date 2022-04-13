@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Avatar, Skeleton } from 'antd'
-import { StyledCard } from '../peopleYMK/peopleYMK.style'
-import { BsIntersect } from 'react-icons/bs'
-import { useGetPeopleSameIndustry } from 'apis/network'
-import Button from 'styles/components/button'
+import { Avatar, Skeleton } from 'antd';
+import { StyledCard } from '../peopleYMK/peopleYMK.style';
+import { BsIntersect } from 'react-icons/bs';
+import { useGetPeopleSameIndustry } from 'apis/network';
+import Button from 'styles/components/button';
+import { Link } from 'react-router-dom';
 
 const PeopleSameIndustry = () => {
   const { data, isLoading } = useGetPeopleSameIndustry();
@@ -13,7 +13,9 @@ const PeopleSameIndustry = () => {
         <h3 className='heading-3'>
           people in <span style={{ color: '#8544C5' }}>art</span> industry
         </h3>
-        <Button viewMore>view more</Button>
+        <Button link>
+          <Link to='/people-in-same-industry'>view more</Link>
+        </Button>
       </header>
       <section>
         {isLoading ? (
@@ -34,6 +36,6 @@ const PeopleSameIndustry = () => {
       </section>
     </StyledCard>
   );
-}
+};
 
-export default PeopleSameIndustry
+export default PeopleSameIndustry;

@@ -1,33 +1,33 @@
-import { NetworkCardWrapper } from './networkRoutes.style'
-import React from 'react'
-import { BsPatchCheck } from 'react-icons/bs'
-import { Link } from 'react-router-dom'
-import { networkLinks } from '../constants'
-import { Divider } from 'antd'
+import { NetworkCardWrapper } from './networkRoutes.style';
+import React from 'react';
+
+import { Link } from 'react-router-dom';
+import { networkLinks } from '../constants';
+import { useLocation } from 'react-router-dom';
 
 const NetworkCard = () => {
+  const { pathname } = useLocation();
+
+  function checkActive(path) {
+    return pathname.split('/').includes(path);
+  }
+
   return (
     <NetworkCardWrapper>
-      <h1>network</h1>
+      <h1 className='heading-1'>network</h1>
       {networkLinks.map((item) => (
-        <div className="sub-title" key={item.label}>
+        <div
+          className={checkActive(item.path) ? 'sub-title active' : 'sub-title'}
+          key={item.label}
+        >
           <button>{item.icon}</button>
-          <Link to={item.path}>
+          <Link to={`${item.path}`}>
             <p>{item.label}</p>
           </Link>
         </div>
       ))}
-      <Divider />
-      <div className="sub-title">
-        <button>
-          <BsPatchCheck size={20} />
-        </button>
-        <Link to='/companies-i-follow'>
-          <p>companies i follow</p>
-        </Link>
-      </div>
     </NetworkCardWrapper>
-  )
-}
+  );
+};
 
-export default NetworkCard
+export default NetworkCard;

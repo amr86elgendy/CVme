@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
 import { Avatar, Skeleton } from 'antd'
 import { StyledCard } from './peopleYMK.style'
 import { BsIntersect } from 'react-icons/bs'
 import { useGetPeopleYMK } from 'apis/network'
 import Button from 'styles/components/button'
+import { Link } from 'react-router-dom'
 
 const PeopleYMKCard = () => {
   const { data, isLoading } = useGetPeopleYMK();
@@ -12,7 +12,7 @@ const PeopleYMKCard = () => {
     <StyledCard>
       <header className='flex-between'>
         <h3 className='heading-3'>people you may know</h3>
-        <Button viewMore>view more</Button>
+        <Button link><Link to='/people-you-may-know'>view more</Link></Button>
       </header>
       <section>
         {isLoading ? (

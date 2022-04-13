@@ -1,29 +1,19 @@
-import React from 'react'
-import Layout from 'layout';
+import React from 'react';
 import { Col, Row } from 'antd';
-import {Card} from 'antd'
-import NetWorkRoutes from './components/networkRoutes'
-import NetworkLandingPage from './components/networkLandingPage'
+import NetWorkRoutes from './components/networkRoutes';
+import NetworkLandingPage from './components/networkLandingPage';
 
 const NetworkPage = () => {
   return (
-    <Layout>
-      <Row
-        justify="center"
-        align="center"
-        gutter={24}
-      >
-        <Col span={8}>
-          <Card>
-            <NetWorkRoutes />
-          </Card>
+      <Row justify='center' align='center' gutter={24}>
+        <Col span={7}>
+          <NetWorkRoutes />
         </Col>
-        <Col span={16}>
+        <Col span={17}>
           <NetworkLandingPage />
         </Col>
       </Row>
-    </Layout>
-  )
-}
+  );
+};
 
-export default NetworkPage
+export default NetworkPage;

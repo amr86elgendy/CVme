@@ -4,16 +4,10 @@ import LoaderComponent from './loader.style';
 export default function Loader() {
   return (
     <LoaderComponent>
-      <svg className='isoContentLoader' viewBox='0 0 50 50'>
-        <circle
-          className='isoContentLoaderCircle'
-          cx='25'
-          cy='25'
-          r='20'
-          fill='none'
-          strokeWidth='3.6'
-        />
-      </svg>
+      <div className='spinner'>
+        <div></div>
+        <div></div>
+      </div>
     </LoaderComponent>
   );
 }

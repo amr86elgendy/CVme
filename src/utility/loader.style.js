@@ -2,55 +2,59 @@ import styled from 'styled-components';
 import { palette } from 'styled-theme';
 
 const LoaderComponent = styled.div`
-  width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: 10000000000;
-  top: 0;
-  right: 0;
 
-  @media only screen and (min-width: 768px) and (max-width: 1220px) {
-    width: calc(100% - 80px);
-  }
-
-  @media only screen and (max-width: 767px) {
-    width: 100%;
-  }
-
-  .isoContentLoader {
+  .spinner {
     width: 50px;
     height: 50px;
-    animation: svgSpinner 1.4s linear infinite;
+    position: relative;
+    margin: auto;
+  }
+  .spinner div {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 8px solid transparent;
+    border-top-color: ${palette('primary', 0)};
+    border-radius: 50%;
+    animation: spinnerOne 1s linear infinite;
+  }
+  .spinner div:nth-child(2) {
+    border: 8px solid transparent;
+    border-bottom-color: ${palette('primary', 0)};
+    animation: spinnerTwo 1s linear infinite;
   }
 
-  .isoContentLoaderCircle {
-    animation: svgSpinnerCircle 1.4s ease-in-out infinite;
-    stroke-dasharray: 80px, 200px;
-    stroke-dashoffset: 0px;
-    stroke: ${palette('primary', 0)};
-    stroke-linecap: round;
-  }
-
-  @keyframes svgSpinner {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  @keyframes svgSpinnerCircle {
+  @keyframes spinnerOne {
     0% {
-      stroke-dasharray: 1px, 200px;
-      stroke-dashoffset: 0px;
+      transform: rotate(0deg);
+      border-width: 10px;
     }
     50% {
-      stroke-dasharray: 100px, 200px;
-      stroke-dashoffset: -15px;
+      transform: rotate(180deg);
+      border-width: 1px;
     }
     100% {
-      stroke-dasharray: 100px, 200px;
-      stroke-dashoffset: -120px;
+      transform: rotate(360deg);
+      border-width: 10px;
+    }
+  }
+  @keyframes spinnerTwo {
+    0% {
+      transform: rotate(0deg);
+      border-width: 1px;
+    }
+    50% {
+      transform: rotate(180deg);
+      border-width: 10px;
+    }
+    100% {
+      transform: rotate(360deg);
+      border-width: 1px;
     }
   }
 `;

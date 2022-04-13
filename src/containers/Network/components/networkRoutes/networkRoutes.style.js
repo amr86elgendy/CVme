@@ -1,18 +1,14 @@
 import styled from 'styled-components'
 import { palette } from 'styled-theme'
+import Card from 'styles/components/card'
 
-export const NetworkCardWrapper = styled.div`
+export const NetworkCardWrapper = styled(Card)`
   display: flex;
   flex-direction: column;
-  gap: .4rem;
-  max-width: 370px;
-  h1 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 30px;
-    text-transform: capitalize;
-    color: ${palette('grayscale', 10)};
-    margin-bottom: .3rem;
+  gap: 0.4rem;
+  
+  .heading-1 {
+    margin-bottom: 0.5rem;
   }
   .sub-title {
     display: flex;
@@ -21,6 +17,7 @@ export const NetworkCardWrapper = styled.div`
     padding: 0.5rem 0.25rem;
     border-radius: 6px;
     transition: all 0.2s ease;
+    margin-bottom: 0.5rem;
     button {
       display: flex;
       align-items: center;
@@ -45,7 +42,7 @@ export const NetworkCardWrapper = styled.div`
       transition: all 0.2s ease;
       text-transform: capitalize;
     }
-    &:hover {
+    &:hover, &.active {
       background-color: ${palette('primary', 4)};
       button {
         background-color: white;
@@ -61,4 +58,4 @@ export const NetworkCardWrapper = styled.div`
   .ant-divider {
     margin: 8px 0;
   }
-`
+`;

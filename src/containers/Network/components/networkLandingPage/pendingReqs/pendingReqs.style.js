@@ -1,13 +1,12 @@
-import {Card} from 'antd'
-import styled from 'styled-components'
-import { palette } from 'styled-theme'
+import Card from 'styles/components/card';
+import styled from 'styled-components';
 
 export const StyledCard = styled(Card)`
   && {
     header {
       margin-bottom: 1rem;
     }
-    
+
     section {
       display: grid;
       gap: 0.5rem;
@@ -18,16 +17,17 @@ export const StyledCard = styled(Card)`
         gap: 0.75rem;
         .info {
           display: flex;
-          gap: 0.75rem;
+          gap: 1rem;
           h4 {
             margin-bottom: 4px;
           }
-          p {}
+          p {
+          }
         }
         .buttons {
-          margin-left: 52px;
+          margin-top: 1rem;
         }
       }
     }
   }
-`
+`;
