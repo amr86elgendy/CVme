@@ -1,21 +1,18 @@
-import { memo } from 'react'
-import { Avatar, Skeleton } from 'antd'
-import { StyledCard } from './peopleYMK.style'
-import { useGetPeopleYMK } from 'apis/network'
-import Button from 'styles/components/button'
-import { Link } from 'react-router-dom'
-import { Intersect } from 'assets/icons'
+import { Avatar, Skeleton } from 'antd';
+import Button from 'styles/components/button';
+import { useGetPeopleSameIndustry } from 'apis/network';
+import { StyledCard } from '../components/networkLandingPage/peopleYMK/peopleYMK.style';
+import { Intersect } from 'assets/icons';
 
-const PeopleYMKCard = () => {
-  const { data, isLoading } = useGetPeopleYMK({ limit: 8 });
+const PeopleInSameIndustryRoute = () => {
+  const { data, isLoading } = useGetPeopleSameIndustry();
   // console.log(data);
   return (
     <StyledCard>
-      <header className='flex-between'>
-        <h3 className='heading-3'>people you may know</h3>
-        <Button link><Link to='people-you-may-know'>view more</Link></Button>
-      </header>
-      <section>
+      <h1 className='heading-1'>
+        people in <span style={{ color: '#8544C5' }}>art</span> industry
+      </h1>
+      <section style={{ marginTop: '1.5rem' }}>
         {isLoading ? (
           <Skeleton active avatar />
         ) : (
@@ -34,6 +31,6 @@ const PeopleYMKCard = () => {
       </section>
     </StyledCard>
   );
-}
+};;
 
-export default memo(PeopleYMKCard)
+export default PeopleInSameIndustryRoute;

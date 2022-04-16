@@ -109,9 +109,38 @@ a {
     line-height: 14px;
     display: flex;
     align-items: center;
+    gap: .25rem;
     color: ${palette('grayscale', 5)};
     svg {
       color: ${palette('grayscale', 7)};
+    }
+  }
+  /* Section No data container */
+  section.no-data {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    .icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      margin: auto;
+      align-self: center;
+      svg {
+        color: ${palette('grayscale', 4)};
+      }
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: ${palette('grayscale', 10)};
+        text-transform: none;
+      }
+      button {
+        margin-top: 1rem;
+        text-transform: none;
+      }
     }
   }
   /* Inputs Style */

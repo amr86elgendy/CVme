@@ -16,9 +16,15 @@ import ErrorBoundary from './ErrorBoundary';
 import Loader from 'utility/Loader';
 import PendingReqsRoute from 'containers/Network/PendingReqsRoute';
 import MyNetworkRoute from 'containers/Network/MyNetworkRoute';
+import LandingPage from 'containers/Network/components/networkLandingPage';
+import PeopleYMKRoute from 'containers/Network/PeopleYMKRoute';
+import PeopleInSameIndustryRoute from 'containers/Network/PeopleSameIndstryRoute';
+import RecommendCompsRoute from 'containers/Network/RecommendCompsRoute';
+import Error from 'containers/ErrorPage'
+import CompsIFollow from 'containers/Network/CompsIFollowRoute';
 
-const Login = lazy(() => import('./containers/Auth/Login'))
-const SignUp = lazy(() => import('./containers/Auth/signup'))
+const Login = lazy(() => import('./containers/Auth/login'));
+const SignUp = lazy(() => import('./containers/Auth/signup'));
 const Network = lazy(() => import('./containers/Network'));
 const Home = lazy(() => import('./containers/Home'));
 
@@ -83,13 +89,31 @@ function AllRoutes(props) {
               }
             >
               <Route index element={<Home />} />
-              <Route path='network' element={<Network />} />
-              <Route path='pending-requests' element={<PendingReqsRoute />} />
-              <Route path='my-network' element={<MyNetworkRoute />} />
+              <Route path='network' element={<Network />}>
+                <Route index element={<LandingPage />} />
+                <Route path='pending-requests' element={<PendingReqsRoute />} />
+                <Route path='my-network' element={<MyNetworkRoute />} />
+                <Route
+                  path='people-in-same-industry'
+                  element={<PeopleInSameIndustryRoute />}
+                />
+                <Route
+                  path='people-you-may-know'
+                  element={<PeopleYMKRoute />}
+                />
+                <Route
+                  path='companies-to-follow'
+                  element={<RecommendCompsRoute />}
+                />
+                <Route
+                  path='companies-i-follow'
+                  element={<CompsIFollow />}
+                />
+              </Route>
             </Route>
             <Route path='/signup' element={<SignUp />} />
             <Route path='/signin' element={<Login />} />
-            <Route path='*' element={<h1>this page does not exist</h1>} />
+            <Route path='*' element={<Error />} />
           </Routes>
         </Router>
       </Suspense>

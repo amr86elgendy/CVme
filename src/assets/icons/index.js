@@ -16,6 +16,8 @@ import {
 import { BsCameraVideo, BsPlusSquare, BsThreeDots } from 'react-icons/bs';
 import { HiOutlinePhotograph } from 'react-icons/hi';
 import { FiFilePlus, FiImage, FiUsers } from 'react-icons/fi';
+import { FaUserAltSlash } from 'react-icons/fa';
+import { BsIntersect } from 'react-icons/bs';
 // TopBar Icons
 export const TopbarMenuIcon = IoMdMenu; // Menu icon
 export const TopbarSearchIcon = IoIosSearch; // Search icon
@@ -41,3 +43,10 @@ export const ThreeDots = BsThreeDots;
 export const ImageIcon = FiImage;
 export const CameraVideo = BsCameraVideo;
 export const FilePlus = FiFilePlus;
+
+// Network
+export const UserSlash = FaUserAltSlash;
+export const Intersect = BsIntersect;
+;
+
+

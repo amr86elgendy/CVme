@@ -1,29 +1,23 @@
 import React from 'react'
-import { Col, Layout, Row } from 'antd'
-import PropTypes from 'prop-types'
-// import useWindowSize from 'hooks/useWindowSize'
-import LayoutStyled from './Layout.style'
-import Navbar from './navbar/Navbar'
+import { Layout } from 'antd'
 import { Outlet } from 'react-router-dom'
+// import useWindowSize from 'hooks/useWindowSize'
+import StyledLayout from './Layout.style';
+import Navbar from './navbar/Navbar'
 
 const { Content } = Layout
 
-function RegisterLayout({ children }) {
+function AppLayout() {
   // const { width, height } = useWindowSize()
 
   return (
-    <LayoutStyled>
+    <StyledLayout>
       <Navbar />
       <Content>
         <div className="container" style={{ padding: '1.5rem 0'}}><Outlet /></div>
       </Content>
-    </LayoutStyled>
+    </StyledLayout>
   )
 }
-RegisterLayout.defaultProps = {
-  children: null,
-}
-RegisterLayout.propTypes = {
-  children: PropTypes.node,
-}
-export default RegisterLayout
+
+export default AppLayout

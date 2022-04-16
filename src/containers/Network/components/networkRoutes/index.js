@@ -8,9 +8,7 @@ import { useLocation } from 'react-router-dom';
 const NetworkCard = () => {
   const { pathname } = useLocation();
 
-  function checkActive(path) {
-    return pathname.split('/').includes(path);
-  }
+  const checkActive = (path) => pathname.split('/').includes(path);
 
   return (
     <NetworkCardWrapper>

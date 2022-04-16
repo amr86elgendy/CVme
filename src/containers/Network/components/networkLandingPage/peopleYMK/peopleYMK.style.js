@@ -6,7 +6,6 @@ export const StyledCard = styled(Card)`
     header {
       margin-bottom: 1rem;
     }
-
     section {
       display: grid;
       gap: 0.5rem;

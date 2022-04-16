@@ -1,7 +1,8 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import NetWorkRoutes from './components/networkRoutes';
-import NetworkLandingPage from './components/networkLandingPage';
+// import NetworkLandingPage from './components/networkLandingPage';
+import { Outlet } from 'react-router-dom';
 
 const NetworkPage = () => {
   return (
@@ -10,7 +11,8 @@ const NetworkPage = () => {
           <NetWorkRoutes />
         </Col>
         <Col span={17}>
-          <NetworkLandingPage />
+          {/* <NetworkLandingPage /> */}
+          <Outlet />
         </Col>
       </Row>
   );

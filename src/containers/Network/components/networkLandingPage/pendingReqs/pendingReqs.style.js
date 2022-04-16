@@ -7,7 +7,7 @@ export const StyledCard = styled(Card)`
       margin-bottom: 1rem;
     }
 
-    section {
+    section.data-container {
       display: grid;
       gap: 0.5rem;
       @media screen and (min-width: 1024px) {

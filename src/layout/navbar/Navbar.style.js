@@ -1,5 +1,5 @@
 import { Button } from 'antd';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { palette } from 'styled-theme';
 
 export const StyledNav = styled.nav`

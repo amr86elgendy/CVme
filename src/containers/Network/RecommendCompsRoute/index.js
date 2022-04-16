@@ -1,24 +1,17 @@
-import { memo } from 'react';
 import { Image, Skeleton } from 'antd';
-import { StyledCard } from './recommendComps.style';
-import cover from 'assets/images/s6.jpg';
-import { MdGroups } from 'react-icons/md';
+import { StyledCard } from '../components/networkLandingPage/recommendComps/recommendComps.style';
+import cover from 'assets/images/s6.jpg'
+import { MdGroups } from 'react-icons/md'
 import { useGetRecommendedComps } from 'apis/network';
 import Button from 'styles/components/button';
-import { Link } from 'react-router-dom';
 
-const RecommendComps = () => {
-  const { data, isLoading } = useGetRecommendedComps({ limit: 3 });
+const RecommendCompsRoute = () => {
+  const { data, isLoading } = useGetRecommendedComps();
   // console.log(data);
   return (
     <StyledCard>
-      <header className='flex-between'>
-        <h3 className='heading-3'>recommended companies to follow</h3>
-        <Button link>
-          <Link to='companies-to-follow'>view more</Link>
-        </Button>
-      </header>
-      <section>
+      <h1 className='heading-1'>recommended companies to follow</h1>
+      <section style={{ marginTop: '1.5rem' }}>
         {isLoading ? (
           <Skeleton active avatar />
         ) : (
@@ -42,6 +35,6 @@ const RecommendComps = () => {
       </section>
     </StyledCard>
   );
-};
+}
 
-export default memo(RecommendComps);
+export default RecommendCompsRoute;
